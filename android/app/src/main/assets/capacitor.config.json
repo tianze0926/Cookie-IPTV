@@ -1,0 +1,6 @@
+{
+	"appId": "com.tz039e.iptv",
+	"appName": "CookieIPTV",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
