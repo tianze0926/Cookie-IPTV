@@ -1,11 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
-import Snackbar from '@mui/material/Snackbar';
+import Snackbar, {SnackbarOrigin} from '@mui/material/Snackbar';
 import { Alert, AlertColor } from '@mui/material';
 
 export interface MessageInfo {
   timestamp: number
   message: string
   severity?: AlertColor
+}
+
+const anchorOrigin: SnackbarOrigin = {
+  vertical: 'bottom',
+  horizontal: 'center'
 }
 
 export default function ConsecutiveSnackbars(props: {
@@ -35,12 +40,14 @@ export default function ConsecutiveSnackbars(props: {
           autoHideDuration={2000}
           onClose={handleClose}
           message={props.messageInfo.message}
+          anchorOrigin={anchorOrigin}
         />
         : <Snackbar
           key={props.messageInfo.timestamp}
           open={open}
           autoHideDuration={2000}
           onClose={handleClose}
+          anchorOrigin={anchorOrigin}
         >
           <Alert
             // onClose={handleClose}
