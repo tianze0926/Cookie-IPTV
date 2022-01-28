@@ -54,13 +54,14 @@ class App extends React.Component<{}, State> {
 
   addLog = (message: string) => {
     this.setState(logState => {
-      return {log: logState.log + '\n' + message}
+      return { log: logState.log + '\n' + message }
     });
   }
 
+
+
   handleExpired = () => {
     this.setState((preState) => {
-      this.addLog(`- \npre--> ${JSON.stringify(preState.auth)} this-->${JSON.stringify(this.state.auth)}\n`)
       // when too many unauth times
       if (!preState.auth.valid && preState.auth.unAuthTimes > 10) {
         return {
@@ -72,9 +73,6 @@ class App extends React.Component<{}, State> {
         }
       }
       // when valid || (!valid && unAuthTimes <= 10)
-      if (preState.auth.valid) {  // only execute at the first time
-        authenticate(this.showSnack, this.handleAuthSuccess, this.addLog);
-      }
       return {
         auth: {
           valid: false,
@@ -83,6 +81,12 @@ class App extends React.Component<{}, State> {
         }
       }
     });
+  }
+
+  componentDidUpdate(_: any, prevState: State) {
+    if (prevState.auth.valid === true && this.state.auth.valid === false) {
+      authenticate(this.showSnack, this.handleAuthSuccess, this.addLog);
+    }
   }
 
   handleAuthSuccess = () => {
