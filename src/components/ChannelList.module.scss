@@ -1,0 +1,35 @@
+.category {
+	margin: 10px;
+}
+
+$columns: 6;
+
+.channels {
+	display: grid;
+	grid-template-columns: repeat($columns, 1fr);
+	column-gap: 8px;
+	row-gap: 8px;
+}
+
+.channel {
+	color: #646464;
+	font-size: 1.0em;
+	background-color: #eeeeee;
+  // border: 1px solid #1976d2;
+	border: none;
+	border-radius: 5px;
+	min-height: 40px;
+	transition: all 0.2s;
+}
+
+.channel:focus {
+	color: white;
+	background-color: #1976d2;
+	transform: scale(1.07);
+	box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+	outline: none;
+}
+
+:export {
+	columns: $columns;
+}
