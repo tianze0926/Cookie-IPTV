@@ -1,5 +1,0 @@
-/* bakcground of dialog: */
-.channel-list .MuiDialog-container .MuiPaper-root{
-	background-color: rgba(255, 255, 255, 0.8);
-	/* backdrop-filter: blur(30px); */
-}

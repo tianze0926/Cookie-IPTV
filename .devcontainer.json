@@ -1,0 +1,8 @@
+{
+    "image": "tz039e/flutter-android",
+    "customizations": {
+        "vscode": {
+            "extensions": ["dart-code.flutter"]
+        }
+    }
+}
